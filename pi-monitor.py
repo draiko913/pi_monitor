@@ -10,7 +10,7 @@ class Monitor:
     def get_thermal_temperature(self):
         thermal = subprocess.check_output(
             "cat /sys/class/thermal/thermal_zone0/temp", shell=True).decode("utf8")
-        return float(thermal) / 1000.0
+        return (float(thermal) / 1000.0 * 9 / 5) + 32
 
     # returns the temperature of the SoC as measured by the on-board temperature sensor
     def get_soc_temperature(self):
