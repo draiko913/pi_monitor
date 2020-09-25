@@ -17,7 +17,7 @@ class Monitor:
         temp = subprocess.check_output(
             "vcgencmd measure_temp", shell=True).decode("utf8")
         #return float(re.findall(r'\d+\.\d+', temp)[0])
-        return round((float(re.findall(r'\d+\.\d+', temp)[0])*9/5)+32,0)
+        return round((float(re.findall(r'\d+\.\d+', temp)[0])*9/5)+32,1)
 
     # uptime in seconds
     def get_uptime(self):
